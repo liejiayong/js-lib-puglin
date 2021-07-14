@@ -1,0 +1,25 @@
+{
+  "name": "js-watermarks",
+  "version": "0.6.0",
+  "description": "WaterMarks for html background",
+  "main": "watermark.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "homepage": "https://github.com/liejiayong/watermark.js",
+  "keywords": [
+    "WaterMarks",
+    "html WaterMarks",
+    "js WaterMarks",
+    "html",
+    "js",
+    ""
+  ],
+  "author": "liejiayong",
+  "license": "MIT",
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.42.1"
+  }
+}
