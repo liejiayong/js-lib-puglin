@@ -1,0 +1,697 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="Copyright" content="Copyright (c) 2006-2016 TENCENT" />
+    <title>移动端视频组件</title>
+  </head>
+  <body>
+    <section class="normal markdown-section">
+      <div id="anchor-navigation-ex-navbar">
+        <i class="fa fa-anchor"></i>
+        <ul>
+          <li>
+            <span class="title-icon"></span>
+            <a href="#移动端视频组件">
+              <b></b>
+              移动端视频组件
+            </a>
+          </li>
+          <ul>
+            <li>
+              <span class="title-icon"></span>
+              <a href="#功能介绍">
+                <b></b>
+                功能介绍
+              </a>
+            </li>
+            <li>
+              <span class="title-icon"></span>
+              <a href="#快速上手">
+                <b></b>
+                快速上手
+              </a>
+            </li>
+            <li>
+              <span class="title-icon"></span>
+              <a href="#demo">
+                <b></b>
+                DEMO:
+              </a>
+            </li>
+            <li>
+              <span class="title-icon"></span>
+              <a href="#mmdvideoplayer101js视频组件详细说明">
+                <b></b>
+                mmd.videoplayer.1.0.1.js视频组件详细说明
+              </a>
+            </li>
+            <ul>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#属性">
+                  <b></b>
+                  属性:
+                </a>
+              </li>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#方法">
+                  <b></b>
+                  方法:
+                </a>
+              </li>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#回调方法">
+                  <b></b>
+                  回调方法:
+                </a>
+              </li>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#demo_1">
+                  <b></b>
+                  DEMO
+                </a>
+              </li>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#注意事项">
+                  <b></b>
+                  注意事项:
+                </a>
+              </li>
+            </ul>
+            <li>
+              <span class="title-icon"></span>
+              <a href="#mmd-pluginmin102js适配组件详细说明">
+                <b></b>
+                mmd-plugin.min.1.0.2.js适配组件详细说明
+              </a>
+            </li>
+            <ul>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#快速上手_1">
+                  <b></b>
+                  快速上手:
+                </a>
+              </li>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#详细信息">
+                  <b></b>
+                  详细信息:
+                </a>
+              </li>
+              <li>
+                <span class="title-icon"></span>
+                <a href="#demo_2">
+                  <b></b>
+                  DEMO:
+                </a>
+              </li>
+            </ul>
+          </ul>
+        </ul>
+      </div>
+      <a href="#移动端视频组件" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a>
+      <h1 id="移动端视频组件">
+        <a name="移动端视频组件" class="anchor-navigation-ex-anchor" href="#移动端视频组件">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        移动端视频组件
+      </h1>
+      <p>mmd-plugin.min.1.0.2.js+mmd.videoplayer.1.0.1.js快速上手</p>
+      <p>作者：强权，lenny</p>
+      <h2 id="功能介绍">
+        <a name="功能介绍" class="anchor-navigation-ex-anchor" href="#功能介绍">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        功能介绍
+      </h2>
+      <p>适用于移动端视频H5，将常用功能进行了封装，集成了以下功能：</p>
+      <ul>
+        <li>内联播放兼容处理;</li>
+        <li>适配屏幕，实现全屏;</li>
+        <li>横竖屏兼容，可强制横/竖屏;</li>
+        <li>判断是否能自动播放;</li>
+        <li>
+          <p>note:</p>
+          <ul>
+            <li>必须是click事件触发video.play()方法,在第一次播放的时候;</li>
+            <li>
+              <p>video.play()的第一次触发必须是同步,不能异步执行;</p>
+              <button class="copy-code-button">Copy</button>
+              <pre
+                style="position: relative"
+              ><code class="lang-javascript"><span class="hljs-comment">//正确用法:</span>
+div.on(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  video.play();
+});
+<span class="hljs-comment">//错误用法;</span>
+
+<span class="hljs-comment">//没有使用click事件;</span>
+div.on(<span class="hljs-string">'touchend'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  video.play();
+}); 
+<span class="hljs-comment">//异步调用video.play()方法错误,必须同步执行;</span>
+div.on(<span class="hljs-string">'click'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+setTimeout(()=&gt;{
+  video.play();
+},<span class="hljs-number">300</span>);               
+});
+</code></pre>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h2 id="快速上手">
+        <a name="快速上手" class="anchor-navigation-ex-anchor" href="#快速上手">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        快速上手
+      </h2>
+      <ol>
+        <li>
+          <p>引入两个js 注：两个JS分别为全屏视频控制，以及视频适配</p>
+          <button class="copy-code-button">Copy</button>
+          <pre
+            style="position: relative"
+          ><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//game.gtimg.cn/images/js/mmdPlugin/mmd-plugin.min.1.0.2.js"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//game.gtimg.cn/images/js/mmdVideoPlayer/mmd.videoplayer.min.1.0.1.js"</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+        </li>
+        <li>
+          <p>初始化</p>
+          <button class="copy-code-button">Copy</button>
+          <pre
+            style="position: relative"
+          ><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">view-mode</span>=<span class="hljs-string">"h"</span> <span class="hljs-attr">view-rotation</span>=<span class="hljs-string">"auto"</span> <span class="hljs-attr">view-scale</span>=<span class="hljs-string">"noborder"</span> <span class="hljs-attr">view-width</span>=<span class="hljs-string">"1334"</span> <span class="hljs-attr">view-height</span>=<span class="hljs-string">"750"</span> <span class="hljs-attr">view-align</span>=<span class="hljs-string">""</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: absolute;"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">video</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"video"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display:none;"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">video</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">var</span> src=<span class="hljs-string">'test.mp4'</span>;    
+<span class="hljs-keyword">var</span> videoPlayer=<span class="hljs-keyword">new</span> MMD.VideoPlayer(
+  {             
+      videoElement:<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'video'</span>),<span class="hljs-comment">//[必填],video元素;</span>
+      src:src,<span class="hljs-comment">//[必填],video src;</span>
+      loop:<span class="hljs-literal">false</span>,<span class="hljs-comment">//[可选],是否循环,默认false,true为循环;</span>
+      muted:<span class="hljs-literal">false</span>,<span class="hljs-comment">//[可选],是否静音,默认false,IOS下只有IOS10生效,安卓生效;</span>
+      poster:<span class="hljs-string">''</span>,<span class="hljs-comment">//[可选],video默认图片;</span>
+      tryMultipleVideoPlayAtTheSameTime:<span class="hljs-literal">false</span>,<span class="hljs-comment">//[可选],尝试同时播放多个视频,默认false;</span>
+      timesParam:[
+          {name:<span class="hljs-string">'firstPoint'</span>,time:<span class="hljs-number">11.48</span>}
+      ],<span class="hljs-comment">//[可选],video currenttime时间点;</span>
+      onTimes:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">name</span>)</span>{                
+          <span class="hljs-built_in">console</span>.log(name)                
+          <span class="hljs-keyword">switch</span> (name)
+          {                    
+              <span class="hljs-keyword">case</span> <span class="hljs-string">'firstPoint'</span>:                                    
+                  <span class="hljs-keyword">break</span>;
+          }
+      },<span class="hljs-comment">//[可选],video currenttime回调;</span>
+      onStart:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{                
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'video start'</span>);
+      },<span class="hljs-comment">//[可选],video第一个画面出现回调;</span>
+      onEnd:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{                
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'video end'</span>);
+      }<span class="hljs-comment">//[可选],video播放完成回调;</span>
+  }
+);    <span class="hljs-comment">//当isVideoCanAutoPlay属性为true时,则代表允许自动播放;</span>
+<span class="hljs-comment">//false时,则需要通过用户点击才能播放视频;</span>
+<span class="hljs-keyword">if</span>(videoPlayer.isVideoCanAutoPlay)
+{
+  videoPlayer.play();
+}    
+<span class="hljs-keyword">else</span>
+{        
+  <span class="hljs-comment">//click to play;</span>
+}    
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+        </li>
+      </ol>
+      <h2 id="demo">
+        <a name="demo" class="anchor-navigation-ex-anchor" href="#demo">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        DEMO:
+      </h2>
+      <p>竖屏常规视频播放,一播到底：</p>
+      <p>
+        <a
+          href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayerAndPlug_h.html"
+          target="_blank"
+        >
+          <img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-1.jpg" alt="" />
+        </a>
+      </p>
+      <p>
+        <a
+          href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayerAndPlug_v.html"
+          target="_blank"
+        >
+          Link
+        </a>
+      </p>
+      <p>视频播放,视频循环动画交互：</p>
+      <p><img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-2.jpg" alt="" /></p>
+      <p>
+        <a
+          href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayerAndPlug_h.html"
+          target="_blank"
+        >
+          Link
+        </a>
+      </p>
+      <h2 id="mmdvideoplayer101js视频组件详细说明">
+        <a
+          name="mmdvideoplayer101js视频组件详细说明"
+          class="anchor-navigation-ex-anchor"
+          href="#mmdvideoplayer101js视频组件详细说明"
+        >
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        mmd.videoplayer.1.0.1.js视频组件详细说明
+      </h2>
+      <p>就已知video兼容问题进行封装优化,增加了属性和功能,灵活性更高;</p>
+      <h3 id="属性">
+        <a name="属性" class="anchor-navigation-ex-anchor" href="#属性">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        属性:
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>属性</th>
+            <th>详细说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>src</td>
+            <td>
+              [读写]:String,视频url地址;
+              <br />
+              可重新设置,重新设置之后会暂停当前视频播放,需要配合play()方法,新视频会开始播放,并且重新触发onStart回调函数;
+            </td>
+          </tr>
+          <tr>
+            <td>loop</td>
+            <td>
+              [读写]:Boolean,视频是否循环播放;
+              <br />
+              false:不循环;
+              <br />
+              true:循环播放;
+            </td>
+          </tr>
+          <tr>
+            <td>muted</td>
+            <td>
+              [读写]:Boolean,视频是否静音;
+              <br />
+              false:不静音;
+              <br />
+              true:静音;
+              <br />
+              注意点:在Android,IOS10适用,IOS9,IOS8不生效;
+            </td>
+          </tr>
+          <tr>
+            <td>poster</td>
+            <td>[读写]:String,视频第一帧图片;</td>
+          </tr>
+          <tr>
+            <td>timesParam</td>
+            <td>
+              [读写]:Array,设置视频时间节点:
+              <br />
+              写法如下:
+              <br />
+              [
+              <br />
+              {name:’firstPoint’,time:2},
+              <br />
+              {name:’secondPoint’,time:6},
+              <br />
+              ….
+              <br />
+              ];
+              <br />
+              注意点:由于视频时间节点的触发是通过帧循环检测出来的,不可能完全按照用户设置的时间点触发,必定会出现少许偏差,还有相邻时间节点的间隔,最好是1秒以上;
+              <br />
+              视频制作的过程中,也需要提前预留好容错空间,假如视频要跳转到2秒位置,那么可以在2秒后预留0.5秒的容错空间,这样视频跳转到2-2.5秒这个区间的时候,用户就不会感觉到突兀了;
+            </td>
+          </tr>
+          <tr>
+            <td>playbackRate</td>
+            <td>
+              [读写],Number,视频播放速度;
+              <br />
+              1:正常速度向前播放;
+              <br />
+              &gt;1:加速向前播放(该功能在IOS上表现良好,Android表现不佳,不建议在Android上使用);
+              <br />
+              &lt;0:倒退播放(同上,建议只在IOS上使用);
+            </td>
+          </tr>
+          <tr>
+            <td>currentTime</td>
+            <td>[只读],获取当前视频播放位置,单位秒;</td>
+          </tr>
+          <tr>
+            <td>currentTimeAndPlay</td>
+            <td>[只写],Number,跳转到视频某个时间点并播放,单位秒;</td>
+          </tr>
+          <tr>
+            <td>currentTimeAndPause</td>
+            <td>[只写],Number,跳转到视频某个时间点并暂停,单位秒;</td>
+          </tr>
+          <tr>
+            <td>isVideoCanAutoPlay</td>
+            <td>
+              [只读],Boolean,当前视频是否运行自动播放
+              <br />
+              true:可以直接调用播放;
+              <br />
+              false:需要通过用户交互才能播放;
+            </td>
+          </tr>
+          <tr>
+            <td>paused</td>
+            <td>
+              [只读],Boolean,视频的播放状态
+              <br />
+              true:暂停专题,false:播放状态;
+            </td>
+          </tr>
+          <tr>
+            <td>duration</td>
+            <td>[只读],Number,视频的总时长;</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id="方法">
+        <a name="方法" class="anchor-navigation-ex-anchor" href="#方法">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        方法:
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>方法</th>
+            <th>详细说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>play()</td>
+            <td>视频播放,封装了微信自动播放触发事件,使得IOS下微信能自动播放视频;</td>
+          </tr>
+          <tr>
+            <td>pause()</td>
+            <td>视频暂停;</td>
+          </tr>
+          <tr>
+            <td>replay()</td>
+            <td>视频重新播放;</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id="回调方法">
+        <a name="回调方法" class="anchor-navigation-ex-anchor" href="#回调方法">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        回调方法:
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>回调方法</th>
+            <th>详细说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>onStart</td>
+            <td>
+              当视频第一帧画面出现时回调;
+              <br />
+              注意,重新设置src,然后调用play()方法,会再次回调该函数;
+            </td>
+          </tr>
+          <tr>
+            <td>onEnd</td>
+            <td>当视频播放完成一次的时候回调;</td>
+          </tr>
+          <tr>
+            <td>onTimes</td>
+            <td>当设置了timesParam属性之后回调,并返回设置的name参数;</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id="demo_1">
+        <a name="demo_1" class="anchor-navigation-ex-anchor" href="#demo_1">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        DEMO
+      </h3>
+      <ul>
+        <li>
+          <p>常规视频播放;</p>
+          <p>
+            <a
+              href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayer_normal.html"
+              target="_blank"
+            >
+              <img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-demo1.jpg" alt="" />
+            </a>
+          </p>
+        </li>
+        <li>
+          <p>跳帧,静音,变速;</p>
+          <p>
+            <a
+              href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayer_attributeAndmethod.html"
+              target="_blank"
+            >
+              <img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-demo2.jpg" alt="" />
+            </a>
+          </p>
+        </li>
+        <li>
+          <p>视频循环播放;</p>
+          <p>
+            <a
+              href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayer_loop.html"
+              target="_blank"
+            >
+              <img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-demo3.jpg" alt="" />
+            </a>
+          </p>
+        </li>
+        <li>
+          <p>视频回调函数;</p>
+          <p>
+            <a
+              href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayer_showMsg.html//tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayer_showMsg.html"
+              target="_blank"
+            >
+              <img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-demo4.jpg" alt="" />
+            </a>
+          </p>
+        </li>
+        <li>
+          <p>更换视频src;</p>
+          <p>在更换src之后,不会自动播放视频,需要调用play()函数,会再次回调onStart函数;</p>
+          <p>
+            <a
+              href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayer_changeSrc.html"
+              target="_blank"
+            >
+              <img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-demo5.jpg" alt="" />
+            </a>
+          </p>
+        </li>
+        <li>
+          <p>尝试同时播放多个视频;</p>
+          <p>
+            <a
+              href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/videoPlayerDemo/mmd_videoPlayer_two.html"
+              target="_blank"
+            >
+              <img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-demo6.jpg" alt="" />
+            </a>
+          </p>
+        </li>
+      </ul>
+      <blockquote class="info">
+        <p>
+          <strong>
+            <i class="fa fa-info-circle"></i>
+            现阶段：
+          </strong>
+        </p>
+        <p>安卓,目前微信里面支持同时播放多个视频,但无法完全覆盖;</p>
+        <p>IOS下需要静音才能支持多个视频同时播放;</p>
+        <p>
+          IOS8和IOS9:静音加上使用iphone-inline-video.js插件,原理就是在暂停视频的状态下,通过改变currentTime来模拟视频播放;
+        </p>
+        <p>IOS10:静音情况下运行同时播放多个视频;</p>
+        <p>
+          同时播放多个视频只是一种尝试,它对网络和手机性能有较高要求,且目前的应用场景也较少,所以有这方面的创意的时候,建议提前测试和告知兼容问题,无法保证所有手机都能同时播放多个视频
+        </p>
+      </blockquote>
+      <h3 id="注意事项">
+        <a name="注意事项" class="anchor-navigation-ex-anchor" href="#注意事项">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        注意事项:
+      </h3>
+      <ul>
+        <li>
+          <p>
+            在PC调试过程中,我们一般会在Chrome下用手机模式去调试项目,在选择iPhone模拟时,我们会发现播放时候的时候画面会出现卡顿,这是由于启用了iphone-inline-video.js插件,他的播放原理是通过跳转currentTime来模拟的,所以才会出现卡顿情况;在IOS系统下,除了手Q和微信,其他浏览器我们都会判断为需要启用iphone-inline-video.js插件,因此会给PC端调试带来些许不变,建议切换成非iphone模式调试;
+          </p>
+        </li>
+        <li>
+          <p>
+            PTT统计上报功能,为了统计组件的使用情况以及视频是否正常播放,不会主动初始化PTT上报组件,而是判断PTT是否存在,假如存在则顺带上报数据,否则不处理;
+          </p>
+        </li>
+        <li>
+          <p>
+            IOS系统每次大版本更新的时候,前端表现都会出现不同程度的震荡,例如IOS10发布的时候,还有2017年9月份发布的IOS11,在版本更新之后出现的bug,希望大家不要过于慌乱,我们会持续关注和维护的;
+          </p>
+        </li>
+      </ul>
+      <h2 id="mmd-pluginmin102js适配组件详细说明">
+        <a
+          name="mmd-pluginmin102js适配组件详细说明"
+          class="anchor-navigation-ex-anchor"
+          href="#mmd-pluginmin102js适配组件详细说明"
+        >
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        mmd-plugin.min.1.0.2.js适配组件详细说明
+      </h2>
+      <p>提供自适应功能,通过自定义标签元素的方法来初始化和赋值;</p>
+      <h3 id="快速上手_1">
+        <a name="快速上手_1" class="anchor-navigation-ex-anchor" href="#快速上手_1">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        快速上手:
+      </h3>
+      <button class="copy-code-button">Copy</button>
+      <pre
+        style="position: relative"
+      ><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-comment">/* 假如添加了video标签,可能会出现video标签默认置顶的情况,解决这个bug可以通过样式设置来规避; */</span>
+<span class="hljs-selector-class">.compatibleStyle</span> {
+    <span class="hljs-attribute">backface-visibility</span>:hidden;
+    <span class="hljs-attribute">-webkit-backface-visibility</span>:hidden; <span class="hljs-comment">/* Chrome 和 Safari */</span>
+    <span class="hljs-attribute">-moz-backface-visibility</span>:hidden;  <span class="hljs-comment">/* Firefox */</span>
+    <span class="hljs-attribute">-ms-backface-visibility</span>:hidden;  <span class="hljs-comment">/* Internet Explorer */</span>
+    <span class="hljs-attribute">-webkit-perspective</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">-webkit-transform</span>: <span class="hljs-built_in">translate3d</span>(0,0,0);
+    <span class="hljs-attribute">visibility</span>:visible;  
+} 
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">view-mode</span>=<span class="hljs-string">"v"</span> <span class="hljs-attr">view-rotation</span>=<span class="hljs-string">"auto"</span> <span class="hljs-attr">view-scale</span>=<span class="hljs-string">"noscale"</span> <span class="hljs-attr">view-width</span>=<span class="hljs-string">"231"</span> <span class="hljs-attr">view-height</span>=<span class="hljs-string">"240"</span> <span class="hljs-attr">view-align</span>=<span class="hljs-string">""</span>&gt;</span>    
+    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"imageUrl"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"compatibleStyle"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"position: absolute;"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//ossweb-img.qq.com/images/js/mmdPlugin/mmd-plugin.min.1.0.2.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+      <h3 id="详细信息">
+        <a name="详细信息" class="anchor-navigation-ex-anchor" href="#详细信息">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        详细信息:
+      </h3>
+      <table>
+        <thead>
+          <tr>
+            <th>标签元素</th>
+            <th>说明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>view-mode</td>
+            <td>横屏/竖屏显示,参数’v’:竖屏,’h’:横屏;</td>
+          </tr>
+          <tr>
+            <td>view-rotation</td>
+            <td>是否旋转可见,参数’v’:仅竖屏可见,’h’:仅横屏可见;</td>
+          </tr>
+          <tr>
+            <td>view-scale</td>
+            <td>
+              缩放方式,参数:
+              <br />
+              "exactfit":宽高等于屏幕宽高,无法保持原始宽高比;
+              <br />
+              "noborder”:裁剪铺满,保持原始宽高比;
+              <br />
+              "noscale":不缩放,保持原始宽高比;
+              <br />
+              "showall":显示全部,保持原始宽高比;
+              <br />
+              "width":宽度等于屏幕宽, 保持原始宽高比;
+              <br />
+              "height":高度等于屏幕高, 保持原始宽高比;
+            </td>
+          </tr>
+          <tr>
+            <td>view-align</td>
+            <td>
+              对齐方式,参数:默认为"":居中;
+              <br />
+              t:靠顶,l:靠左,r:靠右,b:靠底;
+              <br />
+              可以结合一起用，比如tl,tr,bl,br;
+            </td>
+          </tr>
+          <tr>
+            <td>view-width</td>
+            <td>目标宽度,参数:默认400;</td>
+          </tr>
+          <tr>
+            <td>view-height</td>
+            <td>目标高度,参数:默认400;</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3 id="demo_2">
+        <a name="demo_2" class="anchor-navigation-ex-anchor" href="#demo_2">
+          <i class="fa fa-link" aria-hidden="true"></i>
+        </a>
+        DEMO:
+      </h3>
+      <p><img src="https://game.gtimg.cn/images/tgideas/doc/cntimg/component/m-mmd-demo7.jpg" alt="" /></p>
+      <p>
+        API线上DEMO：
+        <a
+          href="https://tgideas.qq.com/act/a20170330mmdVideoPlayer/pluginDemo/v_pluginDemoMain.html"
+          title="点击查看"
+          target="_blank"
+        >
+          点击查看
+        </a>
+      </p>
+    </section>
+  </body>
+</html>

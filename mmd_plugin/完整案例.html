@@ -1,0 +1,50 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GB2312">
+    <meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="Copyright" content="Copyright (c) 2006-2016 TENCENT"/>
+    <title>mmd竖屏_完整案例</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            /*text-align: center;*/
+            /*background-color: #cccccc;*/
+            /*width: 100%;*/
+            /*height: 100%;*/
+            overflow: hidden;
+        }
+    </style>
+</head>
+<script src="mmd-plugin.min.1.0.1.js"></script>
+
+<!--
+参数简易说明:
+1.view-mode = "v" "v"竖屏,"h"横屏;
+2.view-rotation="auto" 默认"auto" 自动旋转,"v"竖屏可视,"h"横屏可视;
+3.view-scale="exactfit" 缩放模式 默认"exactfit";
+                    "exactfit":高宽等于屏幕高宽;
+                    "noborder":裁剪铺满;
+                    "noscale":不缩放;
+                    "showall":显示全部;
+                    "width":宽度等于屏幕宽;
+                    "height":高度等于屏幕高;
+4.view-align="",默认为"" 居中;
+                    "t":靠顶;
+                    "l":靠左;
+                    "r":靠右;
+                    "b":靠底;
+                    可以结合一起用，比如"tl","tr","bl","br";
+5.view-width="400" 目标宽 默认"400";
+6.view-height="400" 目标高 默认"400";
+-->
+
+<div view-mode="v" view-rotation="auto" view-scale="noborder" view-width="750" view-height="1136" view-align="">
+    <img src="//game.gtimg.cn/images/tgideas/act/a20170330mmdVideoPlayer/pluginDemo/vPic.jpg"/>
+</div>
+</body>
+</html>

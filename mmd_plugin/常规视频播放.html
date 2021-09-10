@@ -1,0 +1,91 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="GB2312">
+    <meta name="viewport" content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="Copyright" content="Copyright (c) 2006-2016 TENCENT"/>
+    <title>mmd_videoPlayer_normal</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            /*text-align: center;*/
+            /*background-color: #cccccc;*/
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /*
+        以下样式设置的目的:
+        video在IOS9(包括9)以上系统版本,微信/手Q里面能自动播放,
+        除满足上述条件以外的IOS系统播放video,
+        需要借助以下样式设置来屏蔽默认video控件,
+        并通过videoPlayer.currentTime来实现播放效果;
+        */
+        .IIV::-webkit-media-controls-play-button,
+        .IIV::-webkit-media-controls-start-playback-button {
+            opacity: 0;
+            pointer-events: none;
+            width: 5px;
+        }
+
+
+        button.buttonStyle0 {position: absolute;left:220px;width: 130px;height: 60px;background-color: #ffffff}
+    </style>
+</head>
+<body>
+<script src="mmd.videoplayer.min.1.0.1.js"></script>
+<div style="position: absolute;">
+    <video id="video" style="display:none;width: 60%"></video>
+</div>
+<button id="hit" class="buttonStyle0" style="display:none;top:10px;">需要交互才能播放,点我播放视频</button>
+<script>
+    var src='//game.gtimg.cn/images/game/act/a20160917fbh/videos/video2.mp4';
+    var videoPlayer=new MMD.VideoPlayer(
+        {
+            videoElement:document.getElementById('video'),//[必填],video元素;
+            src:src,//[必填],video src;
+            loop:false,//[可选],是否循环,默认false,true为循环;
+            muted:false,//[可选],是否静音,默认false;
+            poster:'',//[可选],video默认图片;
+            timesParam:[
+                {name:'firstPoint',time:6}
+                ],//[可选],video currenttime时间点;
+            onTimes:function(name){
+                console.log(name)
+                switch (name)
+                {
+                    case 'firstPoint':
+                        //to do;
+
+                        break;
+                }
+            },//[可选],video currenttime回调;
+            onStart:function(){console.log('video start')},//[可选],video第一个画面出现回调;
+            onEnd:function(){console.log('video end')}//[可选],video播放完成回调;
+        }
+    );
+
+    var btn=document.getElementById('hit');
+    if(videoPlayer.isVideoCanAutoPlay)
+    {
+        videoPlayer.play();
+    }
+    else
+    {
+        btn.style.display='block';
+        btn.addEventListener('click',function(e)
+        {
+            btn.style.display='none';
+            videoPlayer.play();
+        });
+    }
+
+</script>
+
+</body>
+</html>

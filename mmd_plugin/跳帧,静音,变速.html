@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="GB2312" />
+    <meta
+      name="viewport"
+      content="width=320,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="Copyright" content="Copyright (c) 2006-2016 TENCENT" />
+    <title>mmd_videoPlayer_attribute&method</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        /*text-align: center;*/
+        /*background-color: #cccccc;*/
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      /*
+        以下样式设置的目的:
+        video在IOS9(包括9)以上系统版本,微信/手Q里面能自动播放,
+        除满足上述条件以外的IOS系统播放video,
+        需要借助以下样式设置来屏蔽默认video控件,
+        并通过videoPlayer.currentTime来实现播放效果;
+        */
+      .IIV::-webkit-media-controls-play-button,
+      .IIV::-webkit-media-controls-start-playback-button {
+        opacity: 0;
+        pointer-events: none;
+        width: 5px;
+      }
+
+      button.buttonStyle0 {
+        position: absolute;
+        right: 2%;
+        width: 200px;
+        height: 30px;
+        background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="mmd.videoplayer.min.1.0.1.js"></script>
+
+    <div>
+      <div style="position: absolute">
+        <video id="video" style="display: none; width: 100%"></video>
+      </div>
+      <button id="btn_play" class="buttonStyle0" style="display: block; top: 10px" onclick="videoPlayer.play();">
+        play()
+      </button>
+      <button id="btn_pause" class="buttonStyle0" style="display: block; top: 50px" onclick="videoPlayer.pause();">
+        pause()
+      </button>
+      <button id="btn_replay" class="buttonStyle0" style="display: block; top: 90px" onclick="videoPlayer.replay();">
+        replay()
+      </button>
+      <button
+        id="btn_muted_true"
+        class="buttonStyle0"
+        style="display: block; top: 130px"
+        onclick="videoPlayer.muted=true;"
+      >
+        muted=true[ISO10&Android]
+      </button>
+      <button
+        id="btn_muted_false"
+        class="buttonStyle0"
+        style="display: block; top: 170px"
+        onclick="videoPlayer.muted=false;"
+      >
+        muted=false[ISO10&Android]
+      </button>
+      <button
+        id="btn_playbackRate2"
+        class="buttonStyle0"
+        style="display: block; top: 210px"
+        onclick="videoPlayer.playbackRate=2;"
+      >
+        playbackRate=2[IOS]
+      </button>
+      <button
+        id="btn_playbackRate1"
+        class="buttonStyle0"
+        style="display: block; top: 250px"
+        onclick="videoPlayer.playbackRate=1;"
+      >
+        playbackRate=1[IOS]
+      </button>
+      <button
+        id="btn_playbackRate-1"
+        class="buttonStyle0"
+        style="display: block; top: 290px"
+        onclick="videoPlayer.playbackRate=-1;"
+      >
+        playbackRate=-1[IOS]
+      </button>
+      <button
+        id="btn_playbackRate-2"
+        class="buttonStyle0"
+        style="display: block; top: 330px"
+        onclick="videoPlayer.playbackRate=-2;"
+      >
+        playbackRate=-2[IOS]
+      </button>
+      <button
+        id="btn_currentTime_12"
+        class="buttonStyle0"
+        style="display: block; top: 370px"
+        onclick="videoPlayer.currentTimeAndPause=10;"
+      >
+        currentTimeAndPause=12
+      </button>
+      <button
+        id="btn_currentTime_12_play"
+        class="buttonStyle0"
+        style="display: block; top: 410px"
+        onclick="videoPlayer.currentTimeAndPlay=12;"
+      >
+        currentTimeAndPlay=12
+      </button>
+    </div>
+    <script>
+      //测试视频地址;
+      // var src0='http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_d851e51074334d5e9d55baa11d432064.f0.mp4?vkey=416BDFBD890903DFD59F473EAA0997A5FD573CB9518C266322B508AB52A13AE5B059051F7A5BD1D943D284B8B53039E6F7FA35B08603B3387A8EDF9CAC934E89D7FFE149639CB023EA3E4E0E6D6AF4647D1D0A2CC2F229E0&sha=0';
+      var src1 = 'video2.mp4';
+      // var src2='http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_7fe8d8b3fc7842c6b0c2ce2630e8e30a.f0.mp4?vkey=3B0C039DCD8086E3325EEC259E6657C4D6F67B9F147A88E137790CA61119E819ECE39B476ACDF24FC3D5148975E3A74B459234C54319AB227A69B3CC7A68A0CA0DEFB58B3CFA08F4F5088B65B27DB0B06B9BB1C07C78C770&sha=0'
+      // var src3='http://videooc.tc.qq.com/vcloud1022.tc.qq.com/1022_76e8aa3744dc428da8d1973127108621.f0.mp4?vkey=FC336D97D2D3C23F3C335C576973CA587CDA7D74834AA7AE411A0E3D4AA9FB7805580BFA804F66A43647E09B712B14C95DAD63773E22CC3369EE3526961A52FB8BDE5227F3D25D8BB2B8BFA6DECD47735884F6FA0C5D6A7E&sha=0'
+      var videoPlayer = new MMD.VideoPlayer({
+        videoElement: document.getElementById('video'), //[必填],video元素;
+        src: src1, //[必填],video src;
+        loop: false, //[可选],是否循环,默认false,true为循环;
+        muted: false, //[可选],是否静音,默认false;
+        poster: '', //[可选],video默认图片;
+        timesParam: [
+          { name: 'firstPoint', time: 11.48 },
+          { name: 'secondPoint', time: 8 },
+        ], //[可选],video currenttime时间点;
+        onTimes: function (name) {
+          console.log(name);
+          switch (name) {
+            case 'firstPoint':
+              //to do;
+              break;
+            case 'secondPoint':
+              //to do;
+              break;
+          }
+        }, //[可选],video currenttime回调;
+        onStart: function () {
+          console.log('video start');
+        }, //[可选],
+        onEnd: function () {
+          console.log('video end');
+        }, //[可选],video播放完成回调;
+      });
+
+      //属性;
+      videoPlayer.src; //[读写] String
+      videoPlayer.loop; //[读写] Boolean
+      videoPlayer.muted; //[读写] Boolean
+      videoPlayer.poster; //[读写] String
+      videoPlayer.timesParam; //[读写] Array
+      videoPlayer.playbackRate; //[读写] Number
+
+      videoPlayer.currentTimeAndPlay; //[读写] Number
+      videoPlayer.currentTimeAndPause; //[读写] Number
+
+      videoPlayer.isVideoCanAutoPlay; //[只读] Boolean
+      videoPlayer.paused; //[只读] Boolean
+      videoPlayer.duration; //[只读] Number
+
+      //方法;
+      /*
+    videoPlayer.play();
+    videoPlayer.pause();
+    videoPlayer.replay();
+    */
+
+      /*
+       * 用来判断video是否支持自动播放;
+       * true:直接调用play方法播放video;
+       * false:需要通过按钮点击来触发play方法;
+       * */
+      //videoPlayer.isVideoCanAutoPlay;
+      /*
+       * video播放方法,里面做兼容处理,在IOS9(包括9)以上的系统,微信/手Q能自动播放;
+       * */
+      //videoPlayer.play();
+      if (videoPlayer.isVideoCanAutoPlay) {
+        videoPlayer.play();
+      }
+    </script>
+  </body>
+</html>
