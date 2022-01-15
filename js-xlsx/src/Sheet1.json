@@ -1,802 +1,162 @@
 [
-  {
-    "title": "糖是不是苦的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "唐朝是不是以胖为美",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "唐朝时期的四大美人是",
-    "content": [
-      { "label": 1, "value": "杨玉环" },
-      { "label": 2, "value": "王昭君" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "十二生肖里没有",
-    "content": [
-      { "label": 1, "value": "猫" },
-      { "label": 2, "value": "鼠" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "牡丹是不是一种植物",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "猫是怎么叫",
-    "content": [
-      { "label": 1, "value": "喵喵" },
-      { "label": 2, "value": "汪汪" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "桃子是一种什么",
-    "content": [
-      { "label": 1, "value": "蔬菜" },
-      { "label": 2, "value": "水果" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "鱼是不是生活在陆地上",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "彩虹没有什么颜色",
-    "content": [
-      { "label": 1, "value": "红" },
-      { "label": 2, "value": "黑" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "文房四宝指的是",
-    "content": [
-      { "label": 1, "value": "说学逗唱" },
-      { "label": 2, "value": "笔墨纸砚" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "中秋节是农历八月十五吗",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "笛子是一种食物吗",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "喝什么不会喝醉",
-    "content": [
-      { "label": 1, "value": "水" },
-      { "label": 2, "value": "酒" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "针线是用来缝衣服的吗",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "雪花是不是耐高温",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "黄河是不是中国第一长河",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "棉花糖是棉花做的吗",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "哪个动物会下蛋",
-    "content": [
-      { "label": 1, "value": "鸡" },
-      { "label": 2, "value": "狗" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "哪位诗人被称为“诗仙”",
-    "content": [
-      { "label": 1, "value": "李白" },
-      { "label": 2, "value": "杜甫" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "面粉是什么做的",
-    "content": [
-      { "label": 1, "value": "大米" },
-      { "label": 2, "value": "小麦" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "四川是什么动物的故乡",
-    "content": [
-      { "label": 1, "value": "北极熊" },
-      { "label": 2, "value": "大熊猫" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "糖果是不是甜的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "哪个动物不会飞",
-    "content": [
-      { "label": 1, "value": "鸟" },
-      { "label": 2, "value": "猫" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "哪个动物会开屏",
-    "content": [
-      { "label": 1, "value": "孔雀" },
-      { "label": 2, "value": "青蛙" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "哪个动物没有鳞片",
-    "content": [
-      { "label": 1, "value": "鱼" },
-      { "label": 2, "value": "鸟" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "北极熊生活在哪里",
-    "content": [
-      { "label": 1, "value": "北极" },
-      { "label": 2, "value": "南极" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "鱼生活在哪里",
-    "content": [
-      { "label": 1, "value": "水里" },
-      { "label": 2, "value": "天上" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "盐是不是甜的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "被誉为万园之园的是",
-    "content": [
-      { "label": 1, "value": "圆明园" },
-      { "label": 2, "value": "颐和园" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "“人之初，性本善”出自哪里",
-    "content": [
-      { "label": 1, "value": "《三字经》" },
-      { "label": 2, "value": "《百家姓》" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "“无字碑”与哪位皇帝有关",
-    "content": [
-      { "label": 1, "value": "秦始皇" },
-      { "label": 2, "value": "武则天" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "林黛玉是哪个作品的人物",
-    "content": [
-      { "label": 1, "value": "《红楼梦》" },
-      { "label": 2, "value": "《水浒传》" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "北斗七星的形状像什么",
-    "content": [
-      { "label": 1, "value": "勺子" },
-      { "label": 2, "value": "筷子" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "哪个地方被誉为“瓷都”",
-    "content": [
-      { "label": 1, "value": "景德镇" },
-      { "label": 2, "value": "张家口" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "哪个是对戏曲班子的别称",
-    "content": [
-      { "label": 1, "value": "梨园" },
-      { "label": 2, "value": "桃园" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "中国历史上的女皇帝是",
-    "content": [
-      { "label": 1, "value": "武则天" },
-      { "label": 2, "value": "吕后" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "以下哪个是“岁寒三友”",
-    "content": [
-      { "label": 1, "value": "松竹菊" },
-      { "label": 2, "value": "松竹梅" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "羊毛出自什么动物",
-    "content": [
-      { "label": 1, "value": "羊" },
-      { "label": 2, "value": "牛" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "樱花开放的季节是",
-    "content": [
-      { "label": 1, "value": "春天" },
-      { "label": 2, "value": "夏天" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "海水是什么味道的",
-    "content": [
-      { "label": 1, "value": "咸" },
-      { "label": 2, "value": "甜" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "端午节一般吃什么食物",
-    "content": [
-      { "label": 1, "value": "月饼" },
-      { "label": 2, "value": "粽子" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "端午节的习俗是",
-    "content": [
-      { "label": 1, "value": "赛马" },
-      { "label": 2, "value": "赛龙舟" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "正月十五是什么节日",
-    "content": [
-      { "label": 1, "value": "端午节" },
-      { "label": 2, "value": "元宵节" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "太阳是不是东升西落",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "以下哪个不是四大名著之一",
-    "content": [
-      { "label": 1, "value": "西游记" },
-      { "label": 2, "value": "西厢记" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "端午节是为了纪念谁",
-    "content": [
-      { "label": 1, "value": "李白" },
-      { "label": 2, "value": "屈原" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "牛郎织女通过什么相会",
-    "content": [
-      { "label": 1, "value": "鹊桥" },
-      { "label": 2, "value": "断桥" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "白娘子和小青是什么妖怪",
-    "content": [
-      { "label": 1, "value": "蛇妖" },
-      { "label": 2, "value": "狐妖" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "梁山伯与祝英台化作了什么",
-    "content": [
-      { "label": 1, "value": "蝴蝶" },
-      { "label": 2, "value": "飞鸟" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "《红楼梦》又叫什么名字",
-    "content": [
-      { "label": 1, "value": "《石头记》" },
-      { "label": 2, "value": "《西厢记》" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "琴棋书画被称作",
-    "content": [
-      { "label": 1, "value": "文人四友" },
-      { "label": 2, "value": "文房四宝" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "李白是不是唐朝诗人",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "“豆蔻年华”是指",
-    "content": [
-      { "label": 1, "value": "十三四岁" },
-      { "label": 2, "value": "十七八岁" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "农历九月九日是什么节日",
-    "content": [
-      { "label": 1, "value": "清明节" },
-      { "label": 2, "value": "重阳节" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "荷花在什么季节开花",
-    "content": [
-      { "label": 1, "value": "夏季" },
-      { "label": 2, "value": "冬季" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "元宵节一般吃什么食物",
-    "content": [
-      { "label": 1, "value": "元宵" },
-      { "label": 2, "value": "粽子" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "蝴蝶是什么变的",
-    "content": [
-      { "label": 1, "value": "毛毛虫" },
-      { "label": 2, "value": "青蛙" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "生肖一共有几种",
-    "content": [
-      { "label": 1, "value": "十种" },
-      { "label": 2, "value": "十二种" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "“皇太后”是皇上的",
-    "content": [
-      { "label": 1, "value": "母亲" },
-      { "label": 2, "value": "妻子" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "柠檬是什么味道的",
-    "content": [
-      { "label": 1, "value": "甜的" },
-      { "label": 2, "value": "酸的" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "哪个动物没有角",
-    "content": [
-      { "label": 1, "value": "猫" },
-      { "label": 2, "value": "鹿" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "月亮是不是方形的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "以下哪个是婉约派词人",
-    "content": [
-      { "label": 1, "value": "李清照" },
-      { "label": 2, "value": "苏轼" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "哪位诗人被称为“诗圣”",
-    "content": [
-      { "label": 1, "value": "杜甫" },
-      { "label": 2, "value": "苏轼" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "《聊斋志异》的作者是",
-    "content": [
-      { "label": 1, "value": "蒲松龄" },
-      { "label": 2, "value": "曹雪芹" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "被称为“唐太宗”的皇帝是",
-    "content": [
-      { "label": 1, "value": "李世民" },
-      { "label": 2, "value": "李隆基" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "“朕”是谁的自称",
-    "content": [
-      { "label": 1, "value": "皇上" },
-      { "label": 2, "value": "皇后" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "戏曲中的女演员一般被称为",
-    "content": [
-      { "label": 1, "value": "旦" },
-      { "label": 2, "value": "生" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "《红楼梦》的作者是",
-    "content": [
-      { "label": 1, "value": "吴承恩" },
-      { "label": 2, "value": "曹雪芹" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "《本草纲目》的作者是",
-    "content": [
-      { "label": 1, "value": "华佗" },
-      { "label": 2, "value": "李时珍" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "“地动仪”是谁发明的",
-    "content": [
-      { "label": 1, "value": "张衡" },
-      { "label": 2, "value": "张骞" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "蝌蚪会变成什么",
-    "content": [
-      { "label": 1, "value": "青蛙" },
-      { "label": 2, "value": "金鱼" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "以下哪个人是“初唐四杰”之一",
-    "content": [
-      { "label": 1, "value": "骆宾王" },
-      { "label": 2, "value": "白居易" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "“清明”是不是二十四节气之一",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "“立春”是不是农历正月初一",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "“除夕”是不是又称年三十",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "上官婉儿是不是唐朝人",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "四十岁是不是被称为“而立之年”",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "《论语》是不是四书之一",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "苏轼是不是豪放派词人",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "醋是不是甜的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "月亮是不是绕着太阳转",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "梅花是不是夏天开花",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "“唐三彩”以哪三种颜色为主",
-    "content": [
-      { "label": 1, "value": "黄绿白" },
-      { "label": 2, "value": "红黄蓝" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "围棋的棋子是不是红色的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "菊花通常在什么季节开花",
-    "content": [
-      { "label": 1, "value": "夏季" },
-      { "label": 2, "value": "秋季" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "四叶草是不是一般有四瓣叶子",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "月亮是不是比太阳小",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "蜂蜜是不是蝴蝶产的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "金元宝是不是银做的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "古筝是不是吹奏乐器",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "红豆是不是绿色的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "星星是不是在天上",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "牛奶是不是黑色的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "熊猫是不是彩色的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "唐僧是不是去东土大唐取经",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "冰是不是热的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "苹果是不是长在树上",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 1
-  },
-  {
-    "title": "蜂蜜是不是辣的",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  },
-  {
-    "title": "老子是不是儒家学派的创始人",
-    "content": [
-      { "label": 1, "value": "是" },
-      { "label": 2, "value": "不是" }
-    ],
-    "right": 0
-  }
+  { "title": "您的性别是？", "isRequired": true, "isMuti": false, "content": ["男", "女"] },
+  {
+    "title": "您的年龄是？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": ["18岁以下", "18-24", "25-30", "31-40", "41岁及以上"]
+  },
+  {
+    "title": "您的受教育程度？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": ["初中及以下", "高中", "大专", "本科", "硕士及以上"]
+  },
+  {
+    "title": "您的职业是？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": [
+      "政府公职人员",
+      "IT/互联网",
+      "媒体、艺术工作者",
+      "实体行业（如餐饮、房产、建筑等）",
+      "专业人员（如教师、律师、设计师、医生等）",
+      "自由职业者",
+      "学生",
+      "家庭主妇",
+      "其他"
+    ]
+  },
+  {
+    "title": "您的职位是？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": ["普通员工", "基层管理者", "中层管理者", "高层管理者", "学生", "自由职业"]
+  },
+  {
+    "title": "哪个APP您使用的最多？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": ["短视频APP（如：抖音、快手）", "微信", "QQ", "视频APP（如：腾讯视频、爱奇艺）", "其他"]
+  },
+  {
+    "title": "什么内容吸引您下载游戏？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": ["精美画面", "抽卡爆率", "游戏福利", "战斗画面", "豪车美女", "益智烧脑", "红包奖励"]
+  },
+  {
+    "title": "您是通过什么途径下载的游戏？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": [
+      "微信朋友圈",
+      "抖音",
+      "今日头条",
+      "微信公众号",
+      "小程序激励视频",
+      "游戏内广告",
+      "QQ看点",
+      "腾讯新闻",
+      "其他"
+    ]
+  },
+  {
+    "title": "您最近玩得比较多的手机游戏类型是？",
+    "isRequired": true,
+    "isMuti": true,
+    "content": [
+      "角色扮演类（如：一梦江湖）",
+      "MOBA类（如：王者荣耀）",
+      "即时战略类（如：率土之滨、三国志战略版）",
+      "休闲益智类（如：消灭星星、割绳子）",
+      "塔防类（如：保卫萝卜、植物大战僵尸）",
+      "模拟经营类（如：极品芝麻官）",
+      "棋牌游戏（如：斗地主）",
+      "卡牌类（如：闪烁之光、剑与远征）"
+    ]
+  },
+  {
+    "title": "您玩过以下哪一款或哪几款游戏？",
+    "isRequired": true,
+    "isMuti": true,
+    "content": [
+      "剑与远征",
+      "闪烁之光",
+      "斗罗大陆：武魂觉醒",
+      "数码宝贝：新世纪",
+      "魔镜物语",
+      "苍蓝默示录",
+      "双生幻想",
+      "小浣熊百将传",
+      "龙将霸业"
+    ]
+  },
+  {
+    "title": "游戏中您最感兴趣的玩法是？（最多选择3项）",
+    "isRequired": true,
+    "isMuti": true,
+    "content": [
+      "组队挑战",
+      "世界树",
+      "时光之城",
+      "后院保卫战",
+      "Boss争夺战",
+      "失落之城",
+      "冒险闯关",
+      "禅境花园",
+      "联盟争霸",
+      "联盟Boss",
+      "竞技场",
+      "跨服玩法",
+      "试炼之地"
+    ]
+  },
+  {
+    "title": "您每天在游戏内投入多少时间？",
+    "isRequired": true,
+    "isMuti": false,
+    "content": ["30分钟以下", "30-60分钟", "60-120分钟", "120分钟以上"]
+  },
+  {
+    "title": "您会在什么时间玩游戏？",
+    "isRequired": true,
+    "isMuti": true,
+    "content": [
+      "清晨：5:30-8:00",
+      "上午：8:00-11:30",
+      "中午：11:30-14:00",
+      "下午：14:00-17:30",
+      "晚上：17:30-0:00",
+      "深夜：0:00-5:30"
+    ]
+  },
+  {
+    "title": "您希望从官方渠道获得哪些信息？",
+    "isRequired": true,
+    "isMuti": true,
+    "content": ["最新活动资讯", "游戏攻略", "游戏福利", "其他"]
+  },
+  {
+    "title": "您最喜欢的卡牌阵容",
+    "isRequired": true,
+    "isMuti": false,
+    "content": ["植物", "僵尸", "超能", "幻想", "未来"]
+  },
+  {
+    "title": "如果弃坑，您觉得会是什么原因离开？",
+    "isRequired": true,
+    "isMuti": true,
+    "content": [
+      "没新玩法，太无聊，每天都是做同样的事情",
+      "充值活动力度不足",
+      "抽不到想要的卡牌",
+      "游戏体验差，偶尔会卡顿或者闪退",
+      "游戏画面不好看",
+      "不知道怎么玩",
+      "不懂搭配阵容"
+    ]
+  },
+  { "title": "您希望游戏中增加什么玩法？", "isRequired": false, "isMuti": false, "content": [] }
 ]
