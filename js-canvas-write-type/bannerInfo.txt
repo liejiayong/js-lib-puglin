@@ -1,0 +1,7 @@
+/**
+ * @description: canvas写字，支持刷子引入
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2022-01-15 11:58:49
+ * @LastEditTime: 2022-01-15 17:18:55
+ * 在线压缩网站：https://rollupjs.org/repl/
+ */
