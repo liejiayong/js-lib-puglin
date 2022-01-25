@@ -8,64 +8,34 @@
 
 <body>
 	<div class="canvas-container">
-
 		<canvas id="canvas">你的浏览器不支持canvas</canvas>
 	</div>
-	<div class="brush">
-		<p>选择笔刷：</p>
-		<img src="pen2.png" class="active" id="pen2" alt="" onclick="selected(0)">
-		<img src="pen1.png" id="pen1" alt="" onclick="selected(1)">
-		<p onclick="clearPaper()" class="clear">清空</p>
+	<div>
+		<button onclick="clearPaper()" >清空</button>
+		<button onclick="back()" >撤回</button>
 	</div>	
 	<script type="module">
-		import CanvasBrush from '../src/brush.js'
+		import CanvasBrush from '../src/index.js'
 			const brush = new CanvasBrush({
 				el: '#canvas', //canvasID选择器
 				width: 800, //canvas宽
 				height: 600, //canvas高
 				brushSize:40,
+				history:true,
 				brush:(function(){
 					var img = new Image()
 					img.src="./pen1.png"
 					return img
 				}())
 			});
+		window.back =function back(){
+			brush.historyBack()
+			window.console.log('撤回',Date.now(), brush);
+		}
+		window.clearPaper = function () {
+			brush.clear();
+			window.console.log('清空',Date.now(), brush);
+		}
 	</script>
-	<!-- <script type="text/javascript" src="../dist/canvas-brush.umd.js"></script>
-	<script type="text/javascript">
-		(function (global) {
-			const config = {
-				el: '#canvas', //canvasID选择器
-				width: 800, //canvas宽
-				height: 600, //canvas高
-				brushSize:40,
-				brush:(function(){
-					var img = new Image()
-					img.src="./pen1.png"
-					return img
-				}())
-			};
-			const brush = new CanvasBrush(config);
-			global.clearPaper = function () {
-				window.console.log('清空',Date.now());
-				brush.clear();
-			}
-			// //选择笔刷
-			// const brushNode = document.querySelectorAll('.brush>img'); //两个笔刷图片标签（数组）
-			// global.selected = function(index) {
-			// 	for(let i = 0; i < brushNode.length; i++){
-			// 		if(index === i){
-			// 			brushNode[i].setAttribute('class','active');
-			// 			//改变选择的笔刷
-			// 			brush.brush = brushNode[i];
-			// 		}else {
-			// 			brushNode[i].setAttribute('class','');
-			// 		}
-			// 	}
-			// }
-
-			console.log('brush install', brush)
-		})(window);
-	</script> -->
 </body>
 </html>

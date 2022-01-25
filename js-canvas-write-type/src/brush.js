@@ -1,7 +1,5 @@
 'use strict';
 
-// import './TouchEmulator.js';
-
 function isNode(value) {
   return value !== undefined && value instanceof HTMLElement && value.nodeType === 1;
 }
@@ -10,13 +8,18 @@ function isFunction(value) {
 
   return type === '[object Function]';
 }
+function subFloat(num, precision = 2) {
+  let [base = '', decimal = ''] = num.toString().split('.');
+  decimal = decimal.substr(0, precision);
+  return +`${base}.${decimal}`;
+}
 const Brush = function (options) {
   this._self = this;
   this.isMoving = false;
   this.canvas = document.querySelector(options.el);
   this.ctx = this.canvas.getContext('2d');
-  this.width = this.canvas.width = options.width; /* canvas宽度 */
-  this.height = this.canvas.height = options.height; /* canvas高度 */
+  this.width = this.canvas.width = options.width | 0; /* canvas宽度 */
+  this.height = this.canvas.height = options.height | 0; /* canvas高度 */
   this.realWidth = this.canvas.clientWidth; /* css实际伸缩宽度 */
   this.realHeight = this.canvas.clientHeight; /* css实际伸缩高度 */
   this.type = options.type;
@@ -25,6 +28,7 @@ const Brush = function (options) {
   this.lineMax = options.lineMax || 20; /* 笔刷移动时最大尺寸 */
   this.lineMin = options.lineMin || 10; /* 笔刷移动时最小尺寸 */
   this.lineUp = options.lineUp || 5; /* 笔刷离开画布时尺寸 */
+  this.history = options.history || false;
   this.linePressure = options.linePressure || 1;
   this.smoothness = options.smoothness || 80;
   this.brush = isNode(options.brush) ? options.brush : document.querySelector(options.brush); // 默认笔刷。 type:'img'时启用
@@ -33,6 +37,8 @@ const Brush = function (options) {
   this.lastPos = {};
   this.has = []; /* 移动像素点坐标信息 */
   this.arr = [];
+  this.historyCacheCurrent = [];
+  this.historyCache = [];
   // //鼠标场景--电脑端.
   // this.canvas.onmousedown = this.downEvent.bind(this);
   // this.canvas.onmousemove = this.moveEvent.bind(this);
@@ -52,7 +58,6 @@ const Brush = function (options) {
   this.__initial__();
 };
 Brush.prototype.__initial__ = function () {
-  // document.addEventListener('DOMContentLoaded', function () {});
   this.clear();
 };
 Brush.prototype.__drawBG = function () {
@@ -109,8 +114,49 @@ Brush.prototype.__drawBG = function () {
   ctx.closePath();
   ctx.stroke();
 };
+Brush.prototype.__saveCache = function (brush, x, y, width, height) {
+  if (!this.history) return;
+  // v1-内存性能差
+  // var data = this.ctx.getImageData(0, 0, this.width, this.height);
+  // this.historyCache.push(data);
+
+  // v2-才用记录数据形式
+  this.historyCacheCurrent.push({ brush, x, y, width, height });
+};
+Brush.prototype.historyBack = function () {
+  if (!this.history) {
+    var err = new Error('You need to enable the history mode');
+    throw err;
+  }
+  if (!this.historyCache.length) {
+    return;
+  }
+
+  // v1-内存性能差
+  // var data = this.historyCache.pop();
+  // this.ctx.putImageData(data, 0, 0);
+
+  // v2-才用记录数据形式
+  this.ctx.clearRect(0, 0, this.width, this.height);
+  isFunction(this.rendBG) ? this.rendBG(this) : this.__drawBG();
+  this.historyCache.pop();
+
+  var historyCache = this.historyCache;
+  for (var d1 in historyCache) {
+    var imageDataList = historyCache[d1];
+    for (var d2 in imageDataList) {
+      var c1 = imageDataList[d2];
+      this.ctx.drawImage(c1.brush, c1.x, c1.y, c1.width, c1.height);
+    }
+  }
+};
 Brush.prototype.clear = function () {
-  this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  this.ctx.clearRect(0, 0, this.width, this.height);
+  this.arr.length = 0;
+  this.historyCache.length = 0;
+  this.historyCacheCurrent.length = 0;
+  this.has.length = 0;
+  this.lastPos = {};
   isFunction(this.rendBG) ? this.rendBG(this) : this.__drawBG();
 };
 Brush.prototype.save = function (type = 'image/png', quality = 1) {
@@ -131,7 +177,8 @@ Brush.prototype.moveEvent = function (e) {
   e.preventDefault();
   if (!this.isMoving) return;
   var curPos = this.getPos(e.touches[0]), //move
-    lastPos = this.lastPos; //down
+    lastPos = this.lastPos,
+    brushSize = this.brushSize; //down
 
   this.has.unshift({ time: new Date().getTime(), dis: this.distance(lastPos, curPos) });
   var dis = 0;
@@ -154,9 +201,14 @@ Brush.prototype.moveEvent = function (e) {
     x = x - this.brushSize / 2;
     y = y - this.brushSize / 2;
 
+    x = subFloat(x);
+    y = subFloat(y);
+    brushSize = subFloat(this.brushSize);
+
     this.arr.unshift({ x, y });
-    this.ctx.drawImage(this.brush, x, y, this.brushSize, this.brushSize);
-    this.brushSize = this.brushSize - 0.2;
+    this.__saveCache(this.brush, x, y, brushSize, brushSize);
+    this.ctx.drawImage(this.brush, x, y, brushSize, brushSize);
+    this.brushSize = brushSize - 0.2;
 
     if (this.brushSize < this.lineMin) this.brushSize = this.lineMin;
   }
@@ -164,11 +216,21 @@ Brush.prototype.moveEvent = function (e) {
 Brush.prototype.upEvent = function (e) {
   this.isMoving = false;
   this.brushSize = this.lineMax;
+
+  var brushSize = this.brushSize,
+    x,
+    y;
+
   if (this.arr.length > 100) {
     for (var j = 0; j < 60; j++) {
       this.arr[j].x = this.arr[j].x - this.brushSize / 4;
       this.arr[j].y = this.arr[j].y - this.brushSize / 4;
-      this.ctx.drawImage(this.brush, this.arr[j].x, this.arr[j].y, this.brushSize, this.brushSize);
+
+      x = subFloat(this.arr[j].x);
+      y = subFloat(this.arr[j].y);
+      brushSize = subFloat(this.brushSize);
+      this.__saveCache(this.brush, x, y, brushSize, brushSize);
+      this.ctx.drawImage(this.brush, x, y, brushSize, brushSize);
 
       this.brushSize = this.brushSize - 0.3;
       if (this.brushSize < this.lineUp) this.brushSize = this.lineUp;
@@ -177,15 +239,25 @@ Brush.prototype.upEvent = function (e) {
     this.arr = [];
   }
   if (this.arr.length == 1) {
-    this.ctx.drawImage(
-      this.brush,
-      this.arr[0].x1 - this.brushSize / 2,
-      this.arr[0].y1 - this.brushSize / 2,
-      this.brushSize,
-      this.brushSize
-    );
+    x = this.arr[0].x1 - this.brushSize / 2;
+    y = this.arr[0].y1 - this.brushSize / 2;
+    x = subFloat(x);
+    y = subFloat(y);
+    brushSize = subFloat(this.brushSize);
+    this.__saveCache(this.brush, x, y, brushSize, brushSize);
+    // this.ctx.drawImage(
+    //   this.brush,
+    //   this.arr[0].x1 - this.brushSize / 2,
+    //   this.arr[0].y1 - this.brushSize / 2,
+    //   this.brushSize,
+    //   this.brushSize
+    // );
+    this.ctx.drawImage(this.brush, x, y, brushSize, brushSize);
     this.arr = [];
   }
+
+  this.historyCache.push(this.historyCacheCurrent);
+  this.historyCacheCurrent = [];
 };
 Brush.prototype.getPos = function (touches) {
   var bbox = this.canvas.getBoundingClientRect(),
