@@ -1,0 +1,7 @@
+<%
+const { config } = it;
+%>
+
+<% if (config.modular) { %>
+    <%~ includeFile('./http-modular.eta', it) %>
+<% } %>

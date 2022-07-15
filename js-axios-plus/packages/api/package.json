@@ -1,0 +1,60 @@
+{
+  "name": "@jp-axios/api",
+  "version": "0.0.24",
+  "description": "A tool that automatically generates and encapsulates Axios according to swagger or OpenAPI",
+  "homepage": "https://github.com/jp-liu/jp-axios/packages/api/#readme",
+  "bugs": {
+    "url": "https://github.com/jp-liu/jp-axios/issues"
+  },
+  "keywords": [
+    "swagger",
+    "swagger-ui",
+    "generate",
+    "generate-api",
+    "openAPI",
+    "codegen",
+    "jp-axios",
+    "axios",
+    "http",
+    "request"
+  ],
+  "license": "MIT",
+  "author": "jp-liu <fortune_coder@foxmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jp-liu/jp-axios.git",
+    "directory": "packages/api"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "bin": {
+    "jp-api": "./bin/index.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "templates",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test:--single": "ts-node ./src/test/test-single.ts",
+    "test:--multiple": "ts-node ./src/test/test-multiple.ts",
+    "build": "tsup --sourcemap --dts --format cjs,esm",
+    "pbs": "pnpm build && pnpm publish --no-git-checks"
+  },
+  "peerDependencies": {
+    "swagger-typescript-api": "^9.3.1"
+  },
+  "dependencies": {
+    "@jp-axios/core": "workspace:*",
+    "make-dir": "^3.1.0",
+    "swagger-typescript-api": "^9.3.1"
+  }
+}

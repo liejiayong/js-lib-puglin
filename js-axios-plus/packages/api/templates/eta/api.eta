@@ -1,0 +1,9 @@
+<%
+const { config } = it;
+%>
+
+<% if (config.modular) { %>
+    <%~ includeFile('./api-modular.eta', it) %>
+<% } else { %>
+    <%~ includeFile('./api-default.eta', it) %>
+<% } %>

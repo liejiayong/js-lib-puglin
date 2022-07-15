@@ -1,0 +1,44 @@
+{
+  "name": "@jp-axios/core",
+  "version": "0.0.15",
+  "description": "**@jp-axios/core** 是 `axios` 的封装.增加了接口拦截器和去除重复请求的功能, 我们可以在这里获得更多代码提示, 良好的开发体验",
+  "homepage": "https://github.com/jp-liu/jp-axios/packages/axios/#readme",
+  "bugs": {
+    "url": "https://github.com/jp-liu/jp-axios/issues"
+  },
+  "keywords": [
+    "axios",
+    "request",
+    "http"
+  ],
+  "license": "MIT",
+  "author": "jp-liu <fortune_coder@foxmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jp-liu/jp-axios.git",
+    "directory": "packages/axios"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "build": "tsup --sourcemap --dts --format esm,cjs",
+    "pbs": "pnpm build && pnpm publish --no-git-checks"
+  },
+  "peerDependencies": {
+    "axios": "^0.26.1"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
+}
